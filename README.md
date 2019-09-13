@@ -19,7 +19,7 @@ python download_data.py
 ```python
 ckip_tagger(ckip_data_path,custom_dict_path)
 ```
-- ckip_data_path: 對應ckip data 資料夾路。
+- ckip_data_path: 對應ckip data 資料夾。
     - default : "./data"
 - custom_dict_path: 所有資料夾底下的檔案會被載入作為`recommend_dictionary`
     - default: "./dict"
