@@ -2,7 +2,8 @@
 [CkipTagger，工研院釋出的中文斷詞系統](https://github.com/ckiplab/ckiptagger)
 
 讓你更方便的使用CkipTagger
-> 這只是一個CkipTagger接口，任何接口以外的問題請至[CkipTagger](https://github.com/ckiplab/ckiptagger)尋找答案與幫助
+> 這只是一個讓你方便使用CkipTagger的接口，所有的斷詞核心功能均與本人無關，任何接口以外的問題請至[CkipTagger](https://github.com/ckiplab/ckiptagger)尋找答案與幫助
+
 ## Usage
 ### Installation
 - 安裝ckip-tagger
