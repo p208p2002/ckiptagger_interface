@@ -27,7 +27,7 @@ ckip_tagger(ckip_data_path,custom_dict_path)
 ```python
 from ckip_tagger import ckip_tagger
 ct = ckip_tagger()
-sentence_list = ["國民黨總統參選人韓國瑜8日大造勢","，主辦單位稱現場湧入35萬人"]
+sentence_list = ["國民黨總統參選人韓國瑜8日大造勢","主辦單位稱現場湧入35萬人"]
 print(ct.parse(sentence_list))
 
 # [[('國民黨', 'Nb'), ('總統', 'Na'), ('參選人', 'Na'), ('韓國瑜', 'Nb'), ('8日', 'Nd'), ('大', 'VH'), ('造勢', 'VB')],[('主辦', 'VC'), ('單位', 'Na'), ('稱', 'VG'), ('現場', 'Nc'), ('湧入', 'VCL'), ('35萬', 'Neu'), ('人', 'Na')]
