@@ -3,7 +3,7 @@
 > 這只是一個接口，需要搭配[CkipTagger](https://github.com/ckiplab/ckiptagger)使用
 ## Usage
 先安裝`CkipTagger`並與`CkipTagger`的`data資料夾`放在一起使用
-> 可使用`down_data.py`下載data資料
+> 可使用`download_data.py`下載data資料
 ### init 
 ```
 ckip_tagger(ckip_data_path,custom_dict_path)
