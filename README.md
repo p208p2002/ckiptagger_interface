@@ -15,6 +15,7 @@ pip install -U ckiptagger[tf,gdown]
 python download_data.py
 ```
 - Download REPO
+
 目前沒有把這個Project放到PyPI上，需要使用的人請自行下載本REPO使用，核心檔案為`ckip_tagger.py`，下載完data後引入即可使用(參見**Parse**)
 
 ### Init 
