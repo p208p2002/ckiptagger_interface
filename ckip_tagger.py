@@ -28,21 +28,30 @@ class ckip_tagger():
                     word_to_weight.update({word:word_weight})
         return word_to_weight
 
-    def __get_word_pos_sentence(self,word_sentence, pos_sentence):
+    def __get_word_pos_sentence(self,word_sentence, pos_sentence, ner_sentence):
         # Show results
         assert len(word_sentence) == len(pos_sentence)
         res = []
         for word, pos in zip(word_sentence, pos_sentence):
-            res.append((word,pos)) #(斷詞,詞性)
+            #
+            ner_tag = 'NONE'
+            for ner_tag_infos in ner_sentence:
+                ner_start,ner_end,_ner_tag,_ner_word = ner_tag_infos
+                if(_ner_word == word):
+                    ner_tag = _ner_tag
+                    break
+            #
+            res.append((word,pos,ner_tag)) #(斷詞,詞性)
         return res
     
     def parse(self,sentence_list):
         word_sentence_list = self.ws(sentence_list,recommend_dictionary = self.dictionary)
         pos_sentence_list = self.pos(word_sentence_list)
         entity_sentence_list = self.ner(word_sentence_list, pos_sentence_list)
+        # print(entity_sentence_list)
         res = []
         for i, sentence in enumerate(sentence_list):
-            res.append(self.__get_word_pos_sentence(word_sentence_list[i],  pos_sentence_list[i]))
+            res.append(self.__get_word_pos_sentence(word_sentence_list[i],  pos_sentence_list[i], entity_sentence_list[i]))
         return res
 
             
