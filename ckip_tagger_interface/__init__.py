@@ -18,9 +18,9 @@ class ckip_tagger():
         
     def __load_custom_dict(self,custom_dict_path):
         # load all file under path
-        dicts = os.listdir(custom_dict_path)
         word_to_weight = {}
         try:
+            dicts = os.listdir(custom_dict_path)
             for dic in dicts:
                 with open(custom_dict_path + '/' + dic, 'r', encoding='utf-8') as f:
                     while(True):
