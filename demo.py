@@ -1,5 +1,4 @@
-from ckip_tagger_interface import ckip_tagger
-            
+from ckip_tagger_interface import ckip_tagger      
 if __name__ == "__main__":
     ckip = ckip_tagger()
     sentence = [

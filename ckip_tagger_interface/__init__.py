@@ -20,19 +20,22 @@ class ckip_tagger():
         # load all file under path
         dicts = os.listdir(custom_dict_path)
         word_to_weight = {}
-        for dic in dicts:
-            with open(custom_dict_path + '/' + dic, 'r', encoding='utf-8') as f:
-                while(True):
-                    line = f.readline()
-                    if(len(line)==0):
-                        break
-                    line_split = line.split()
-                    word = line_split[0]
-                    try:
-                        word_weight = line_split[1]
-                    except:
-                        word_weight = 1
-                    word_to_weight.update({word:word_weight})
+        try:
+            for dic in dicts:
+                with open(custom_dict_path + '/' + dic, 'r', encoding='utf-8') as f:
+                    while(True):
+                        line = f.readline()
+                        if(len(line)==0):
+                            break
+                        line_split = line.split()
+                        word = line_split[0]
+                        try:
+                            word_weight = line_split[1]
+                        except:
+                            word_weight = 1
+                        word_to_weight.update({word:word_weight})
+        except:
+            pass
         return word_to_weight
 
     def __get_word_pos_sentence(self,word_sentence, pos_sentence, ner_sentence):
