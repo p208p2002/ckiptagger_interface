@@ -3,7 +3,7 @@ from ckiptagger import data_utils, construct_dictionary, WS, POS, NER
 import os
 
 class ckip_tagger():
-    def __init__(self,ckip_data_path = './data', custom_dict_path='./dict', disable_cuda=True, cuda_memory_limit=2048):
+    def __init__(self,ckip_data_path = './data', custom_dict_path=None, disable_cuda=True, cuda_memory_limit=2048):
         if (disable_cuda == False):
             gpus = tf.config.experimental.list_physical_devices('GPU')
             try:
@@ -14,28 +14,28 @@ class ckip_tagger():
         self.ws = WS(ckip_data_path, disable_cuda=disable_cuda)
         self.pos = POS(ckip_data_path, disable_cuda=disable_cuda)
         self.ner = NER(ckip_data_path, disable_cuda=disable_cuda)
-        self.dictionary = construct_dictionary(self.__load_custom_dict(custom_dict_path))
+        if(custom_dict_path is not None):
+            self.dictionary = construct_dictionary(self.__load_custom_dict(custom_dict_path))
+        else:
+            self.dictionary = {}
         
     def __load_custom_dict(self,custom_dict_path):
         # load all file under path
         word_to_weight = {}
-        try:
-            dicts = os.listdir(custom_dict_path)
-            for dic in dicts:
-                with open(custom_dict_path + '/' + dic, 'r', encoding='utf-8') as f:
-                    while(True):
-                        line = f.readline()
-                        if(len(line)==0):
-                            break
-                        line_split = line.split()
-                        word = line_split[0]
-                        try:
-                            word_weight = line_split[1]
-                        except:
-                            word_weight = 1
-                        word_to_weight.update({word:word_weight})
-        except:
-            pass
+        dicts = os.listdir(custom_dict_path)
+        for dic in dicts:
+            with open(custom_dict_path + '/' + dic, 'r', encoding='utf-8') as f:
+                while(True):
+                    line = f.readline()
+                    if(len(line)==0):
+                        break
+                    line_split = line.split()
+                    word = line_split[0]
+                    try:
+                        word_weight = line_split[1]
+                    except:
+                        word_weight = 1
+                    word_to_weight.update({word:word_weight})
         return word_to_weight
 
     def __get_word_pos_sentence(self,word_sentence, pos_sentence, ner_sentence):
