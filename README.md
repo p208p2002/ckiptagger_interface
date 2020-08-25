@@ -17,7 +17,7 @@ pip install -U git+https://github.com/p208p2002/ckiptagger@ckiptagger-tf2.1
 
 - 安裝 interface for CkipTagger
 ```
-pip install git+https://github.com/p208p2002/ckip_tagger_interface.git
+pip install git+https://github.com/p208p2002/ckiptagger_interface.git
 ```
 
 - 下載data(約2G)
@@ -59,8 +59,8 @@ def __init__(self,ckip_data_path, custom_dict_path, disable_cuda, cuda_memory_li
 
 ### Parse
 ```python
-from ckip_tagger_interface import ckip_tagger
-ckip = ckip_tagger()
+from ckiptagger_interface import ckiptagger
+ckip = ckiptagger()
 sentence = [
     '國民黨總統參選人韓國瑜8日大造勢","主辦單位稱現場湧入35萬人',
     '民主進步黨，簡稱民進黨，是中華民國主要政黨之一，也是現時中華民國的執政黨及立法院最大黨']

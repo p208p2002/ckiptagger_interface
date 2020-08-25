@@ -7,7 +7,7 @@ with open("README.md", "r",encoding="utf-8") as fh:
     # requirements = f.read().split("\n")
 
 setuptools.setup(
-    name="ckip_tagger_interface", # 
+    name="ckiptagger_interface", # 
     version='0.0.1',
     author="Philip Huang",
     author_email="p208p2002@gmail.com",

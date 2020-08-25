@@ -2,7 +2,7 @@ import tensorflow as tf
 from ckiptagger import data_utils, construct_dictionary, WS, POS, NER
 import os
 
-class ckip_tagger():
+class ckiptagger():
     def __init__(self,ckip_data_path = './data', custom_dict_path=None, disable_cuda=True, cuda_memory_limit=2048):
         if (disable_cuda == False):
             gpus = tf.config.experimental.list_physical_devices('GPU')
