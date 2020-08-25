@@ -1,12 +1,19 @@
+import tensorflow as tf
 from ckiptagger import data_utils, construct_dictionary, WS, POS, NER
 import os
 
 class ckip_tagger():
-    def __init__(self,ckip_data_path = './data', custom_dict_path='./dict'):
+    def __init__(self,ckip_data_path = './data', custom_dict_path='./dict', disable_cuda=True, cuda_memory_limit=2048):
+        if (disable_cuda == False):
+            gpus = tf.config.experimental.list_physical_devices('GPU')
+            try:
+                tf.config.experimental.set_virtual_device_configuration(gpus[0], [tf.config.experimental.VirtualDeviceConfiguration(cuda_memory_limit)])
+            except RuntimeError as e:
+                print(e)
         # Load model
-        self.ws = WS(ckip_data_path)
-        self.pos = POS(ckip_data_path)
-        self.ner = NER(ckip_data_path)
+        self.ws = WS(ckip_data_path, disable_cuda=disable_cuda)
+        self.pos = POS(ckip_data_path, disable_cuda=disable_cuda)
+        self.ner = NER(ckip_data_path, disable_cuda=disable_cuda)
         self.dictionary = construct_dictionary(self.__load_custom_dict(custom_dict_path))
         
     def __load_custom_dict(self,custom_dict_path):
@@ -57,6 +64,8 @@ class ckip_tagger():
             
 if __name__ == "__main__":
     ckip = ckip_tagger()
-    while(True):
-        sentence = input("輸入句子:\n")
-        print(ckip.parse([sentence]))
+    sentence = [
+        '國民黨總統參選人韓國瑜8日大造勢","主辦單位稱現場湧入35萬人',
+        '民主進步黨，簡稱民進黨，是中華民國主要政黨之一，也是現時中華民國的執政黨及立法院最大黨']
+    print(ckip.parse(sentence))
+        
