@@ -18,7 +18,7 @@ pip install -U git+https://github.com/p208p2002/ckiptagger@ckiptagger-tf2.1
 
 - 安裝 interface for CkipTagger
 ```
-pip install git+https://github.com/p208p2002/interface-for-ckiptagger.git
+pip install git+https://github.com/p208p2002/ckip_tagger_interface.git
 ```
 
 - 下載data(約2G)
