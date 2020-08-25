@@ -4,9 +4,8 @@
 讓你更方便的使用CkipTagger
 > 這只是一個讓你方便使用CkipTagger的接口，所有斷詞功能與成果均與本人無關，任何接口以外的問題請至[CkipTagger](https://github.com/ckiplab/ckiptagger)尋找答案與幫助
 
-## Usage
+## Installation
 **請確保已經安裝tensorflow**
-### Installation
 - 安裝ckip-tagger **適用:tensorflow>=1.13.1,<2**
 ```
 pip install -U ckiptagger
@@ -28,6 +27,7 @@ python download_data.py
 ```
 > [model backup](https://github.com/ckiplab/ckiptagger#1-download-model-files)
 
+## Usage
 ### Init 
 ```python
 def __init__(self,ckip_data_path, custom_dict_path, disable_cuda, cuda_memory_limi):
