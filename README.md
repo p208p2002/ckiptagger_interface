@@ -27,21 +27,10 @@ python download_data.py
 ```
 
 ### Manual download model files
-
 The model files are available on several mirror sites.
 - [iis-ckip](http://ckip.iis.sinica.edu.tw/data/ckiptagger/data.zip)
 - [gdrive-ckip](https://drive.google.com/drive/folders/105IKCb88evUyLKlLondvDBoh7Dy_I1tm)
 - [gdrive-jacobvsdanniel](https://drive.google.com/drive/folders/15BDjL2IaX3eYdFVzT422VwCb743Hrbi3)
-
-You can download and extract to the desired path by one of the included API.
-```python
-# Downloads to ./data.zip (2GB) and extracts to ./data/
-# data_utils.download_data_url("./") # iis-ckip
-data_utils.download_data_gdown("./") # gdrive-ckip
-```
-- ./data/model_ner/pos_list.txt -> POS tag list, see [Wiki](https://github.com/ckiplab/ckiptagger/wiki/POS-Tags) / [Technical Report no. 93-05](http://ckip.iis.sinica.edu.tw/CKIP/tr/9305_2013%20revision.pdf)
-- ./data/model_ner/label_list.txt -> Entity type list, see [Wiki](https://github.com/ckiplab/ckiptagger/wiki/Entity-Types) / [OntoNotes Release 5.0](https://catalog.ldc.upenn.edu/docs/LDC2013T19/OntoNotes-Release-5.0.pdf)
-- ./data/embedding_* -> character/word embeddings, see [Wiki](https://github.com/ckiplab/ckiptagger/wiki/Corpora)
 
 ## Usage
 ### Init 
