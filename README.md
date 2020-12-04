@@ -6,13 +6,10 @@
 
 ## Installation
 **請確保已經安裝tensorflow**
-- 安裝ckip-tagger **適用:tensorflow>=1.13.1,<2**
+
+- 安裝ckip-tagger
 ```
 pip install -U ckiptagger
-```
-- 安裝ckip-tagger **適用:tensorflow>=2.1**
-```
-pip install -U git+https://github.com/p208p2002/ckiptagger@ckiptagger-tf2.1
 ```
 
 - 安裝 interface for CkipTagger
